@@ -1,5 +1,5 @@
 open (IN, "cmpd_selected.txt"); 
-### create tab delimited compound list with "compound\tsmile\tpubchemID\tchebiID\tstitchID"####
+### create tab delimited compound list with "compound\tsmile\tpubchemID\tchebiID\tstitchID", output from metacyc2stitch.pl ####
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
