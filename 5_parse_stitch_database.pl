@@ -1,3 +1,8 @@
+#!bin/perl
+## This is a perl script to parse the downloaded STITCH database, and for a list of selected STITCH compound IDs ##
+## it pulls the list of interaction targets of the compound, the interaction type and the interaction confidence score from the database ##
+## all input can be directly downloaded from STITCH database depository ##
+
 open (IN, "9606.protein_chemical.links.detailed.v5.0.tsv");
 while (<IN>) {
 	chop;
