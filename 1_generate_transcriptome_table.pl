@@ -1,5 +1,10 @@
 #!bin/perl
+## This script is used to process microarray data directly downloaded from NCBI GEO database ###
+## including a metadata file, a probeset gene match file and a raw expression matrix file ##
+
+use lib "/home/wangzhang/perl5/lib/perl5/";
 use Statistics::Descriptive;
+
 open (IN, "matchlist"); ##### tab delimited matchlist for dataset and platform #######
 while (<IN>) {
 	chop;
@@ -13,7 +18,7 @@ for my $id (sort keys %match) {
 	my @a=();
 	my %meta=();
 	print STDERR "processing $id\.......\n";
-	open (IN, "$id\_select.txt"); ######## open metadata file ##############
+	open (IN, "$id\_metadata.txt"); ######## open metadata file ##############
 	$dump=<IN>;
 	while (<IN>) {
 		chop;
