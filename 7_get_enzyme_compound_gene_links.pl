@@ -40,7 +40,7 @@ while (<IN>) {
 }
 
 open (IN, "microbial_metabolic_reactions.txt");
-### list of selected microbial metabolic reactions from the metagenomic inference, formatted as EC number\tleft compounds\tright compounds###
+### list of selected microbial metabolic reactions from the metagenomic inference, formatted as EC number\tleft compounds\tright compounds\treversibility###
 ### left and right compounds were further separated by ";" ###
 while (<IN>) {
 	chop;
