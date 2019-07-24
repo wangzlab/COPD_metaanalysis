@@ -9,8 +9,8 @@ open (IN, "cmpd_selected.txt");
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
-	$pc{$a[0]}=$a[2]; #### map pubchem ID ####
-	$chebi{$a[0]}=$a[3]; #### map chEBI ID ######
+	$pc{$a[0]}=$a[2]; ## map pubchem ID ##
+	$chebi{$a[0]}=$a[3]; ## map chEBI ID ##
 	for my $i (1..$#a) {
 		if ($a[$i]=~ /CID/) {
 			$comp{$a[0]}{$a[$i]}=1;
