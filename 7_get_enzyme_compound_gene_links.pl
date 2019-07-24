@@ -1,5 +1,11 @@
+#!bin/perl
+## This is a script to integrate the outputs from previous steps ##
+## to generate compounds, host targets, confidence score, interaction type, meta-analysis fold change and p-values for the host targets ##
+## for each individual microbial enzymes of interest ##
+## results are generated for each enzyme EC number separately in the compound_annotation folder to be further triaged to link microbiome-host signatures ##
+
 open (IN, "cmpd_selected.txt"); 
-### create tab delimited compound list with "compound\tsmile\tpubchemID\tchebiID\tstitchID", output from metacyc2stitch.pl ####
+### tab delimited compound list with "compound\tsmile\tpubchemID\tchebiID\tstitchID", output from 5_convert_metacyc_to_stitch.pl ####
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
@@ -11,7 +17,8 @@ while (<IN>) {
 		}
 	}
 }
-open (IN, "/database/stitch/compound_receptor_all_idmatch.txt");
+open (IN, "/database/stitch/compound_target_match.txt");
+### tab delimited compound target match list, output from 6_parse_stitch_database.pl ###
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
@@ -19,24 +26,28 @@ while (<IN>) {
 	$interaction{$a[0]}{$a[2]}=$a[4]."\t".$a[9];
 }
 open (IN, "metaanalysis.txt");
+### tab delimited files for each gene, its fold change and P-value in the meta-analysis, as gene\tfold-change\traw-pvalue\tfdr-pvalue ###
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
 	$metaanalysis{$a[0]}=$a[1]."\t".$a[3];
 }
+### list of compounds that are putatively human-derived and need to be filtered ###
 open (IN, "human_cmpd_list");
 while (<IN>) {
 	chop;
 	$human{$_}=1;
 }
 
-open (IN, "metabolic_reactions.txt");
+open (IN, "microbial_metabolic_reactions.txt");
+### list of selected microbial metabolic reactions from the metagenomic inference, formatted as EC number\tleft compounds\tright compounds###
+### left and right compounds were further separated by ";" ###
 while (<IN>) {
 	chop;
 	@a=split("\t",$_);
 	($id)=($a[0]=~ /EC:(\S+)/);
-	@b=split(";",$a[3]);
-	@c=split(";",$a[4]);
+	@b=split(";",$a[1]);
+	@c=split(";",$a[2]);
 	open (OUT, ">>compound_annotation/$id.txt");
 	for my $cmpd (@b) {
 		next if (! exists $comp{$cmpd} or exists $human{$cmpd});
