@@ -1,3 +1,7 @@
+#!bin/perl
+## This is a simple perl script to parse the metabolic reaction info in "reactions.tab" in the downloaded MetaCyc database ##
+## to generate a cleaner file for enzyme, metabolic reaction, left and right compounds and reaction reversibility ###
+
 open (IN, "/database/metacyc/22.6/data/reactions.tab"); ### link to your own metacyc database #####
 print "UNIQUE-ID\tEC-NUMBER\tENZYMATIC-REACTION\tLEFT\tRIGHT\tREACTION-DIRECTION\n";
 while (<IN>) {
