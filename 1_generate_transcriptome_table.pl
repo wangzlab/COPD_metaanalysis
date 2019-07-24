@@ -1,6 +1,7 @@
 #!bin/perl
 ## This script is used to process microarray data directly downloaded from NCBI GEO database ###
 ## including a metadata file, a probeset gene match file and a raw expression matrix file ##
+## The output is a "$id_processed.txt" for each individual dataset ##
 
 use lib "/home/wangzhang/perl5/lib/perl5/";
 use Statistics::Descriptive;
