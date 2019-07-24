@@ -2,7 +2,7 @@
 
 This depository contains key scripts used to analyze the data in the manuscript "Multi-omic meta-analysis identifies robust functional signatures of airway microbiome in COPD" by Wang et al.
 
-The usage and instruction of individual scripts are below and also within the scripts.
+The usage and instruction of individual scripts are below and also within the scripts. You need to download MetaCyc and STITCH databases first to be able to use some of these scripts.
 
 1. "1_generate_transcriptome_table.pl" is used to process microarray data directly downloaded from NCBI GEO database. With a downloaded matchlist for each dataset and its platform, and each downloaded data including a metadata file, a probset gene match file for the platform and a raw expression matrix file, the script converts probe-set level expression data to gene-set level data and outputs as "$id_processed.txt".
 
