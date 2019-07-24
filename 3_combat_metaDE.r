@@ -1,7 +1,11 @@
+## This R script is used to perform combat normalization and MetaDE meta-analysis for the processed transcriptome data ##
+## The input data is "all.txt", which is a concatenated matrix of normalized expression values of all genes (in rows) and all samples (in columns) ##
+
 library(bnstruct)
 data<-read.table("all.txt",header=TRUE,row.names=1,check.names=F,sep="\t")
 data_impute<-knn.impute(as.matrix(data),k=10,cat.var=1:ncol(data),to.impute=1:nrow(data),using=1:nrow(data))
 write.table(data_impute,file="all_imputed.txt",append=FALSE,quote=FALSE,sep="\t")
+
 library(sva)
 data<-read.table("all_imputed.txt",header=TRUE,row.names=1,check.names=F,sep="\t")
 meta<-read.table("all_metadata.txt",header=TRUE,row.names=1,check.name=F,sep="\t")
