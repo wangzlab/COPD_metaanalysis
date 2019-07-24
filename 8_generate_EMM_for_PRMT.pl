@@ -1,7 +1,7 @@
 #!bin/perl
 ## This is a script to generate normalized Environmental Metabolomic Matrix (EMM) for PRMT calculation ##
-## based on the enzyme-compound relationship table as input ###
-## The output is a enzyme-compound matrix in which the relative contribution score of the enzyme to the compound was indicated ##
+## based on the enzyme-compound association table as input ###
+## The output is an enzyme-compound matrix in which the relative contribution score of the enzyme to the compound was indicated ##
 
 open (IN, "microbial_metabolic_reactions.txt"); 
 my %contrib=();
