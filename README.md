@@ -20,6 +20,8 @@ The usage and instruction of individual scripts are below and also within the sc
 
 8. "8_generate_EMM_for_PRMT.pl" is used to generate normalized Environmental Metabolomic Matrix (EMM) for PRMT calculation. Based on the enzyme-compound association table as input, the output is an enzyme-compound matrix in which the relative contribution score of the enzyme to the compound was indicated.
 
+
 9. "9_calculate_PRMT.pl" is used to generate the PRMT score of the metabolites based on the combined fold change of microbial genes in the meta-analysis and the EMM matrix generated in the previous step.
 
+10. "10_LOGO.pl" is used to generate the inferred metagenome profiles through a Leave-One-Genus-Out (LOGO) analysis in which each genus of interest was excluded one at a time. The random effect statistical meta-analysis can be performed for each LOGO profile and used to re-calculate PRMT scores using the script in step 9.
 
