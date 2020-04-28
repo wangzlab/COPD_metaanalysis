@@ -1,6 +1,6 @@
 # COPD multi-omic meta-analysis
 
-This depository contains key scripts used to analyze the data in the manuscript "Multi-omic meta-analysis identifies robust functional signatures of airway microbiome in COPD" by Wang et al.
+This depository contains key scripts used to analyze the data in the manuscript "Multi-omic meta-analysis identifies functional signatures of airway microbiome in COPD" by Wang et al.
 
 The usage and instruction of individual scripts are below and also within the scripts. You need to download MetaCyc and STITCH databases first to be able to use some of these scripts.
 
