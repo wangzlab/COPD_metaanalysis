@@ -41,8 +41,6 @@ while (<IN>) {
 	}
 }
 open (IN, "SRP136124.tsv"); ### stratified ASV contribution table to EC genes provided by PICRUSt2 (the first two columns being EC and ASV and remaining being samples) ###
-
-#open (IN, "SRP136124_test.tsv");
 $header=<IN>;
 chop $header;
 @headers=split("\t",$header);
